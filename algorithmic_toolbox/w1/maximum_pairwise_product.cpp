@@ -1,36 +1,22 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
 using std::vector;
 using std::cin;
 using std::cout;
-using std::max;
+using std::sort;
 
-int64_t MaxPairwiseProductFast(const vector<int>& numbers) {
-  int n = numbers.size();
+int64_t MaxPairwiseProductFast(vector<int64_t>& numbers) {
+  sort(numbers.begin(), numbers.end());
 
-  int index1 = 0;
-  for (int i = 1; i < n; ++i) {
-    if (numbers[i] > numbers[index1]) {
-      index1 = i;
-    }
-  }
-
-  int index2 = index1 == 0 ? 1 : 0;
-
-  for (int i = 1; i < n; ++i) {
-    if (i != index1 && numbers[i] > numbers[index2]) {
-      index2 = i;
-    }
-  }
-
-  return numbers[index1] * numbers[index2];
+  return numbers.end()[-2] * numbers.end()[-1];
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> numbers(n);
+    vector<int64_t> numbers(n);
     for (int i = 0; i < n; ++i) {
         cin >> numbers[i];
     }
