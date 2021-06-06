@@ -3,8 +3,6 @@
 #include <vector>
 
 using std::vector;
-using std::cin;
-using std::cout;
 
 int fibonacci_last_digit(int n) {
     vector<int> numbers(n + 1);
